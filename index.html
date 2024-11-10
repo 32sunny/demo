@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+#innerdiv{
+    
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: red;
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px;
+    gap: 50px;
+}
+.card{
+    color: white;
+    padding: 20px;
+    width: 200px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: red;
+    box-shadow: 0px 0px 10px #240505;
+}
+button
+{
+    width: 80px;
+    height: 30px;
+}
+#edit-btn{
+    background-color:rgb(29, 29, 70);
+    color: white;
+}
+#delete-btn{
+     color: white;
+     background-color: rgb(13, 96, 46);
+}
+</style>
+<body>
+    <button style="text-decoration: none;
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+                   background-color: rgb(120, 98, 219);
+                   font-size: 15px;
+                   padding: 5px;
+                   width: 100px
+    "><a href="createUser.html">Create User</a></button>
+
+ <div id="container">
+
+ </div>
+
+ <div>
+   <button id="button-style" onclick="previouspage()">previous</button>
+    <button id="button-style" onclick="nextpage()">next</button>
+   </div>
+
+</body>
+</html>
+
+     <script src="jobs.js"></script>

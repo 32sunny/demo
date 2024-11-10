@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="number" id="editsalary"  />
+      
+      <input type="submit" value="Update salary" />
+    </form>
+  </body>
+</html>
+<script>
+    
+  let params = new URLSearchParams(window.location.search);
+  let id = params.get("id");
+
+  fetch(`https://masai-7b971-default-rtdb.firebaseio.com/users/${id}.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      let salary = data.salary;
+      document.querySelector("#editsalary").value = salary;
+   
+    });
+
+  document.querySelector("form").addEventListener("submit", editUser);
+
+  function editUser() {
+    event.preventDefault();
+    let updatedsalary = document.querySelector("#editsalary").value;
+
+    let raw = JSON.stringify({
+      salary: updatedsalary,
+    });
+    fetch(
+      `https://masai-7b971-default-rtdb.firebaseio.com/users/${id}.json`,
+      {
+        method: "PATCH",
+        body: raw,
+      }
+    )
+      .then((res) => res.json())
+      .then(() => {
+        alert("User updated successfully");
+        window.location.href = "index.html";
+      });
+  }
+</script>
